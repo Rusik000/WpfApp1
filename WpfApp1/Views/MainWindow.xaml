@@ -2,21 +2,18 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="528.773" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="*"/>
             <ColumnDefinition  Width="2*"/>
         </Grid.ColumnDefinitions>
 
-
         <Grid Grid.Column="0">
-            <ComboBox  Name="ComboBx" 
-                       Width="200" Height="50" 
-                       VerticalAlignment="Top" Margin="10" 
+            <ComboBox  Name="ComboBx" Height="55" FontSize="26"
+                       VerticalAlignment="Top" Margin="10,10,10,0" 
                        Background="Aqua"
                        SelectionChanged="ComboBox_SelectionChanged">
                 <ComboBoxItem >
@@ -28,6 +25,7 @@
                 <ComboBoxItem>
                     Victorian
                 </ComboBoxItem>
+                
 
             </ComboBox>
         </Grid>
@@ -35,17 +33,16 @@
         <Grid Grid.Column="1">
             <StackPanel>
                 <WrapPanel Height="150">
-
                     <Label Content="Chair" FontSize="26" HorizontalAlignment="Center" Margin="10"  Width="80" Height="55"></Label>
-                    <Image Width="140" Height="140" HorizontalAlignment="Right"></Image>
+                    <Image Width="140" Height="147" HorizontalAlignment="Right" Source="{Binding ImageChair}" Stretch="Fill"></Image>
                 </WrapPanel>
                 <WrapPanel Height="150">
                     <Label Content="Table" FontSize="26" HorizontalAlignment="Center" Margin="10"  Width="80" Height="54"></Label>
-                    <Image Width="140" Height="140" HorizontalAlignment="Right" ></Image>
+                    <Image Width="140" Height="149" HorizontalAlignment="Right" Source="{Binding ImageTable}" Stretch="Fill" ></Image>
                 </WrapPanel>
-                <WrapPanel Height="120">
+                <WrapPanel Height="167">
                     <Label Content="Sofa" FontSize="26" HorizontalAlignment="Center" Margin="10"  Width="80" Height="58"></Label>
-                    <Image Width="138" Height="114" />
+                    <Image Width="138" Height="164"  Source="{Binding ImageSofa}" Stretch="Fill"/>
                 </WrapPanel>
             </StackPanel>
         </Grid>

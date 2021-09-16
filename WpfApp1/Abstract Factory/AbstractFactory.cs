@@ -12,6 +12,7 @@ namespace WpfApp1.Abstract_Factory
     {
         bool sitOn();
         bool hasLegs();
+        string getImageChair();
     }
 
     public class ArtDecoChair : IChair
@@ -26,6 +27,10 @@ namespace WpfApp1.Abstract_Factory
             return false;
         }
 
+        public string getImageChair()
+        {
+            return "/Images/ArtDecoChair.jpg";
+        }
 
 
         public string ImagePath_ArtDecoChair { get; set; }
@@ -45,6 +50,11 @@ namespace WpfApp1.Abstract_Factory
             return true;
         }
 
+        public string getImageChair()
+        {
+            return "/Images/MicrosoftTeams-image.png";
+        }
+
         public string ImagePath_ModernChair { get; set; }
     }
 
@@ -61,7 +71,13 @@ namespace WpfApp1.Abstract_Factory
         {
             return false;
         }
-        public string ImagePath_VictorialChair { get; set; }
+
+        public string getImageChair()
+        {
+            return "/Images/VictorianChair.jpg";
+        }
+
+
     }
 
 
@@ -71,11 +87,18 @@ namespace WpfApp1.Abstract_Factory
     {
         bool sitOn();
         bool hasLegs();
+
+        string getImageTable();
     }
 
 
     public class ArtDecoTable : ITable
     {
+        public string getImageTable()
+        {
+            return "/Images/ArtDecoTable.jpg";
+        }
+
         public bool hasLegs()
         {
             return true;
@@ -91,6 +114,11 @@ namespace WpfApp1.Abstract_Factory
 
     public class ModernTable : ITable
     {
+        public string getImageTable()
+        {
+            return "/Images/ModernTable.jpg";
+        }
+
         public bool hasLegs()
         {
             return false;
@@ -105,6 +133,11 @@ namespace WpfApp1.Abstract_Factory
 
     public class VictorialTable : ITable
     {
+        public string getImageTable()
+        {
+            return "/Images/VictorianTable.jpg";
+        }
+
         public bool hasLegs()
         {
             return false;
@@ -120,12 +153,19 @@ namespace WpfApp1.Abstract_Factory
     {
         bool CanEnlarge();
 
+        string GetImageSofa();
+
     }
     public class ArtDecoSofa : ISofa
     {
         public bool CanEnlarge()
         {
             return true;
+        }
+
+        public string GetImageSofa()
+        {
+            return "/Images/ArtDecoSofa.jpg";
         }
     }
 
@@ -136,6 +176,11 @@ namespace WpfApp1.Abstract_Factory
         {
             return false;
         }
+
+        public string GetImageSofa()
+        {
+            return "/Images/ModernSofa.jpg";
+        }
     }
 
 
@@ -145,107 +190,113 @@ namespace WpfApp1.Abstract_Factory
         {
             return true;
         }
-    }
 
-
-
-    public interface IFurnitureFactory
-    {
-        IChair createChair();
-        ITable createTable();
-        ISofa createSofa();
-        void Show();
-    }
-
-
-
-
-    public class ModernFurnitureFactory : IFurnitureFactory
-    {
-        public IChair createChair()
+        public string GetImageSofa()
         {
-            return new ModernChair();
+            return "/Images/VictorianSofa.jpg";
         }
 
-        public ISofa createSofa()
+
+
+        public interface IFurnitureFactory
         {
-            return new ModernSofa();
+            IChair createChair();
+            ITable createTable();
+            ISofa createSofa();
+            void Show();
         }
 
-        public ITable createTable()
+
+
+
+        public class ModernFurnitureFactory : IFurnitureFactory
         {
-            return new ModernTable();
+            public IChair createChair()
+            {
+                return new ModernChair();
+            }
+
+            public ISofa createSofa()
+            {
+                return new ModernSofa();
+            }
+
+            public ITable createTable()
+            {
+                return new ModernTable();
+            }
+
+            public void Show()
+            {
+                MessageBox.Show("Art Deco Style");
+                var chair = createChair();
+                var table = createTable();
+                var sofa = createSofa();
+            }
         }
 
-        public void Show()
+
+        public class VictorianFurnitureFactory : IFurnitureFactory
         {
-            MessageBox.Show("Art Deco Style");
-            var chair = createChair();
-            var table = createTable();
-            var sofa = createSofa();
-        }
-    }
+            public IChair createChair()
+            {
+                return new VictorialChair();
+            }
 
+            public ISofa createSofa()
+            {
+                return new VictorianSofa();
+            }
 
-    public class VictorianFurnitureFactory : IFurnitureFactory
-    {
-        public IChair createChair()
-        {
-            return new VictorialChair();
-        }
+            public ITable createTable()
+            {
+                return new VictorialTable();
+            }
 
-        public ISofa createSofa()
-        {
-            return new VictorianSofa();
-        }
-
-        public ITable createTable()
-        {
-            return new VictorialTable();
-        }
-
-        public void Show()
-        {
-            MessageBox.Show("Art Deco Style");
-            // Console.WriteLine("Victorian Style");
-            //var chair = createChair();
-            //var table = createTable();
-            //var sofa = createSofa();
-        }
-    }
-
-
-
-
-
-    public class ArtDecoFurnitureFactory : IFurnitureFactory
-    {
-        public IChair createChair()
-        {
-            return new ArtDecoChair();
+            public void Show()
+            {
+                MessageBox.Show("Art Deco Style");
+                // Console.WriteLine("Victorian Style");
+                //var chair = createChair();
+                //var table = createTable();
+                //var sofa = createSofa();
+            }
         }
 
-        public ISofa createSofa()
-        {
-            return new ArtDecoSofa();
-        }
 
-        public ITable createTable()
-        {
-            return new ArtDecoTable();
-        }
 
-        public void Show()
+
+
+        public class ArtDecoFurnitureFactory : IFurnitureFactory
         {
-            MessageBox.Show("Art Deco Style");
-            //Console.WriteLine("Art Deco Style");
-            var chair = createChair();
-            var table = createTable();
-            var sofa = createSofa();
+            public IChair createChair()
+            {
+                return new ArtDecoChair();
+            }
+
+            public ISofa createSofa()
+            {
+                return new ArtDecoSofa();
+            }
+
+            public ITable createTable()
+            {
+                return new ArtDecoTable();
+            }
+
+            public void Show()
+            {
+                MessageBox.Show("Art Deco Style");
+                //Console.WriteLine("Art Deco Style");
+                var chair = createChair();
+                var table = createTable();
+                var sofa = createSofa();
+            }
         }
-    }
-    public class AbstractFactory
-    {
+        public class AbstractFactory
+        {
+
+        }
 
     }
 }

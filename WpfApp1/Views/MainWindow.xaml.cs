@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.Abstract_Factory;
+using static WpfApp1.Abstract_Factory.VictorianSofa;
 
 namespace WpfApp1
 {
@@ -22,6 +23,12 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         private IFurnitureFactory furnitureFactory { get; set; }
+
+        public string ImageChair { get; set; }
+        public string ImageTable { get; set; }
+        public string ImageSofa { get; set; }
+
+
 
         public MainWindow()
         {
@@ -38,6 +45,11 @@ namespace WpfApp1
             {
                 furnitureFactory = new ModernFurnitureFactory();
                 furnitureFactory.Show();
+                ImageChair = furnitureFactory.createChair().getImageChair();
+                ImageTable = furnitureFactory.createTable().getImageTable();
+                ImageSofa = furnitureFactory.createSofa().GetImageSofa();
+                //
+
             }
             else if (s == 1)
             {
