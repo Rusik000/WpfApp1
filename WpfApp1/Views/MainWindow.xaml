@@ -2,10 +2,10 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:WpfApp1.ViewModels" xmlns:i="http://schemas.microsoft.com/xaml/behaviors" xmlns:ie="http://schemas.microsoft.com/expression/2010/interactivity" d:DataContext="{d:DesignInstance Type=viewmodels:BaseViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="528.773" Width="800">
-    <Grid>
+    <Grid Background="Aqua">
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="*"/>
             <ColumnDefinition  Width="2*"/>
@@ -14,19 +14,22 @@
         <Grid Grid.Column="0">
             <ComboBox  Name="ComboBx" Height="55" FontSize="26"
                        VerticalAlignment="Top" Margin="10,10,10,0" 
-                       Background="Aqua"
-                       SelectionChanged="ComboBox_SelectionChanged">
-                <ComboBoxItem >
-                    Modern
-                </ComboBoxItem>
+                       Background="Aqua" >
+
+                <ie:Interaction.Triggers>
+                    <ie:EventTrigger EventName="SelectionChanged">
+                        <ie:InvokeCommandAction Command="{Binding SelectedChanged}"  CommandParameter="{Binding ElementName=ComboBx, Path=SelectedItem}"/>
+                    </ie:EventTrigger>
+                </ie:Interaction.Triggers>
                 <ComboBoxItem>
-                    ArtDeco
+                    Modern
                 </ComboBoxItem>
                 <ComboBoxItem>
                     Victorian
                 </ComboBoxItem>
-                
-
+                <ComboBoxItem>
+                    ArtDeco
+                </ComboBoxItem>
             </ComboBox>
         </Grid>
 

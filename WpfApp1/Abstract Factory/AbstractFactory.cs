@@ -29,7 +29,7 @@ namespace WpfApp1.Abstract_Factory
 
         public string getImageChair()
         {
-            return "/Images/ArtDecoChair.jpg";
+            return "../Images/ArtDecoChair.jpg";
         }
 
 
@@ -52,7 +52,7 @@ namespace WpfApp1.Abstract_Factory
 
         public string getImageChair()
         {
-            return "/Images/MicrosoftTeams-image.png";
+            return "../Images/MicrosoftTeams-image.png";
         }
 
         public string ImagePath_ModernChair { get; set; }
@@ -74,7 +74,7 @@ namespace WpfApp1.Abstract_Factory
 
         public string getImageChair()
         {
-            return "/Images/VictorianChair.jpg";
+            return "../Images/VictorianChair.jpg";
         }
 
 
@@ -96,7 +96,7 @@ namespace WpfApp1.Abstract_Factory
     {
         public string getImageTable()
         {
-            return "/Images/ArtDecoTable.jpg";
+            return "../Images/ArtDecoTable.jpg";
         }
 
         public bool hasLegs()
@@ -116,7 +116,7 @@ namespace WpfApp1.Abstract_Factory
     {
         public string getImageTable()
         {
-            return "/Images/ModernTable.jpg";
+            return "../Images/ModernTable.jpg";
         }
 
         public bool hasLegs()
@@ -135,7 +135,7 @@ namespace WpfApp1.Abstract_Factory
     {
         public string getImageTable()
         {
-            return "/Images/VictorianTable.jpg";
+            return "../Images/VictorianTable.jpg";
         }
 
         public bool hasLegs()
@@ -165,7 +165,7 @@ namespace WpfApp1.Abstract_Factory
 
         public string GetImageSofa()
         {
-            return "/Images/ArtDecoSofa.jpg";
+            return "../Images/ArtDecoSofa.jpg";
         }
     }
 
@@ -179,7 +179,7 @@ namespace WpfApp1.Abstract_Factory
 
         public string GetImageSofa()
         {
-            return "/Images/ModernSofa.jpg";
+            return "../Images/ModernSofa.jpg";
         }
     }
 
@@ -193,7 +193,7 @@ namespace WpfApp1.Abstract_Factory
 
         public string GetImageSofa()
         {
-            return "/Images/VictorianSofa.jpg";
+            return "../Images/VictorianSofa.jpg";
         }
 
 
@@ -293,10 +293,7 @@ namespace WpfApp1.Abstract_Factory
                 var sofa = createSofa();
             }
         }
-        public class AbstractFactory
-        {
-
-        }
+        
 
     }
 }
